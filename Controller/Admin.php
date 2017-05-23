@@ -33,9 +33,20 @@ class Admin implements \Box\InjectionAwareInterface
                     'location'  => 'craftsrv',
                     'label'     => 'Servers Machines',
                     'index'     => 1000,
-                    'uri'       => $this->di['url']->adminLink('craftsrv/'),
+                    'uri'       => $this->di['url']->adminLink('craftsrv'),
                 ),
             ),
 		) ;
+	}
+
+	public function register(\Box_App &$app)
+	{
+		$app->get('/craftsrv', 'serversMachines', array(), get_class($this)) ;
+	}
+
+	public function serversMachines(\Box_App $app)
+	{
+		$this->di['is_admin_logged'] ;
+		return $app->render('mod_craftsrv_serversMachines') ;
 	}
 }

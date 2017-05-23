@@ -1,0 +1,46 @@
+{% extends "layout_default.phtml" %}
+{% set active_menu = 'craftsrv' %}
+{% block meta_title %}{% trans 'CraftSRV Servers Machines' %}{% endblock %}
+
+{% block top_content %}
+<div class="stats">
+    <ul>
+        <li class="last"><a href="{{ 'craftsrv'|alink }}" class="count grey" title="">0</a><span>{% trans 'Total' %}</span></li>
+    </ul>
+    <div class="fix"></div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="widget simpleTabs">
+
+    <ul class="tabs">
+        <li><a href="#tab-index">{% trans 'Servers Machines' %}</a></li>
+    </ul>
+    <div class="tabs_container">
+        <div class="fix"></div>
+        <div class="tab_content nopadding" id="tab-index">
+            {{ mf.table_search }}
+            <table class="tableStatic wide">
+                <thead>
+                    <tr>
+                        <td style="width: 2%"><input type="checkbox" class="batch-delete-master-checkbox"/></td>
+                        <td colspan="2">{% trans 'Api host' %}</td>
+                        <td>{% trans 'Api version' %}</td>
+                        <td width="30%">{% trans 'Token' %}</td>
+                        <td width="13%">&nbsp;</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td colspan="7">{% trans 'The list is empty' %}</td>
+                    </tr>
+                </tbody>
+            </table>
+            {% include "partial_batch_delete.phtml" with {'action' : 'admin/craftsrv/batch_delete'} %}
+            {% include "partial_pagination.phtml" with {'list': clients, 'url':'craftsrv'} %}
+    	</div>
+    </div>
+</div>
+{% endblock %}
