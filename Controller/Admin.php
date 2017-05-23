@@ -41,10 +41,10 @@ class Admin implements \Box\InjectionAwareInterface
 
 	public function register(\Box_App &$app)
 	{
-		$app->get('/craftsrv', 'serversMachines', array(), get_class($this)) ;
+		$app->get('/craftsrv', 'get_index', array(), get_class($this)) ;
 	}
 
-	public function serversMachines(\Box_App $app)
+	public function get_index(\Box_App $app)
 	{
 		$this->di['is_admin_logged'] ;
 		return $app->render('mod_craftsrv_serversMachines') ;
