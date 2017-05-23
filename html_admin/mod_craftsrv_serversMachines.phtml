@@ -16,6 +16,7 @@
 
     <ul class="tabs">
         <li><a href="#tab-index">{% trans 'Servers Machines' %}</a></li>
+        <li><a href="#tab-new">{% trans 'New Server Machine' %}</a></li>
     </ul>
     <div class="tabs_container">
         <div class="fix"></div>
@@ -41,6 +42,36 @@
             {% include "partial_batch_delete.phtml" with {'action' : 'admin/craftsrv/batch_delete'} %}
             {% include "partial_pagination.phtml" with {'list': clients, 'url':'craftsrv'} %}
     	</div>
+
+        <div class="fix"></div>
+        <div class="tab_content nopadding" id="tab-new">
+            <form method="post" action="{{ 'api/admin/craftsrv/create'|link }}" class="mainForm api-form save" data-api-redirect="{{ 'craftsrv'|alink }}">
+                <fieldset>
+                    <div class="rowElem">
+                        <label>{% trans 'Host' %}:</label>
+                        <div class="formRight">
+                            <input type="text" name="host" value="{{request.host}}" required="required"/>
+                        </div>
+                        <div class="fix"></div>
+                    </div>
+                    <div class="rowElem">
+                        <label>{% trans 'Version' %}:</label>
+                        <div class="formRight">
+                            <input type="text" name="version" value="{{request.version}}" required="required"/>
+                        </div>
+                        <div class="fix"></div>
+                    </div>
+                    <div class="rowElem">
+                        <label>{% trans 'Token' %}:</label>
+                        <div class="formRight">
+                            <textarea name="token" cols="5" rows="4" required="required">{{request.token}}</textarea>
+                        </div>
+                        <div class="fix"></div>
+                    </div>
+                    <input type="submit" value="{% trans 'Create' %}" class="greyishBtn submitForm" />
+                </fieldset>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}
