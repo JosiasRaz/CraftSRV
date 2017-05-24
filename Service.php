@@ -14,7 +14,7 @@ class Service implements \Box\InjectionAwareInterface
 		$this->di = $di ;
 	}
 
-	public function getDi($di)
+	public function getDi()
 	{
 		return $this->di ;
 	}
