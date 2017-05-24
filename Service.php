@@ -32,7 +32,7 @@ class Service implements \Box\InjectionAwareInterface
         $this->di['db']->exec($sql);
 	}
 
-	private function adminCreateServerMachine(array $srvMachine_array)
+	public function adminCreateServerMachine(array $srvMachine_array)
 	{
         $srvMachine = $this->di['db']->dispense('craftsrv_machine') ;
         foreach ($srvMachine_array as $field => $value) {
