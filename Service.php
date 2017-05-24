@@ -24,6 +24,7 @@ class Service implements \Box\InjectionAwareInterface
 		$sql = "
         CREATE TABLE IF NOT EXISTS `craftsrv_machine` (
             `id` bigint(20) NOT NULL AUTO_INCREMENT,
+            `name` varchar(255) NOT NULL,
             `host` varchar(255) NOT NULL,
             `version` varchar(2) NOT NULL,
             `token` varchar(255) NOT NULL,
@@ -54,26 +55,33 @@ class Service implements \Box\InjectionAwareInterface
 
         $search     = (isset($data['search']) && !empty($data['search'])) ? $data['search'] : NULL;
         $id         = (isset($data['id']) && !empty($data['id'])) ? $data['id'] : NULL;
-        $craftsrv_host  = (isset($data['craftsrv_host']) && !empty($data['craftsrv_host'])) ? $data['craftsrv_host'] : NULL;
-        $craftsrv_version  = (isset($data['craftsrv_version']) && !empty($data['craftsrv_version'])) ? $data['craftsrv_version'] : NULL;
+        $name       = (isset($data['name']) && !empty($data['name'])) ? $data['name'] : NULL;
+        $host       = (isset($data['host']) && !empty($data['host'])) ? $data['host'] : NULL;
+        $version    = (isset($data['version']) && !empty($data['version'])) ? $data['version'] : NULL;
 
         $where = array();
         $params = array();
         if($id) {
-            $where[] = 'c.id = :craftsrv_id';
-            $params[':craftsrv_id'] = $id;
+            $where[] = 'c.id = :id';
+            $params[':id'] = $id;
         }
 
-        if($craftsrv_host) {
-            $where[] = '(c.first_craftsrv_host LIKE :first_craftsrv_host)';
-            $craftsrv_host = "%" . $craftsrv_host . "%";
-            $params[':first_craftsrv_host'] = $craftsrv_host;
+        if($host) {
+            $where[] = '(c.host LIKE :host)';
+            $host = "%" . $host . "%";
+            $params[':host'] = $host;
         }
 
-        if($craftsrv_version) {
-            $where[] = '(c.first_craftsrv_version LIKE :first_craftsrv_version)';
-            $craftsrv_version = "%" . $craftsrv_version . "%";
-            $params[':first_craftsrv_version'] = $craftsrv_version;
+        if($name) {
+            $where[] = '(c.name LIKE :name)';
+            $name = "%" . $name . "%";
+            $params[':name'] = $name;
+        }
+
+        if($version) {
+            $where[] = '(c.version LIKE :version)';
+            $version = "%" . $version . "%";
+            $params[':version'] = $version;
         }
 
         //smartSearch
@@ -82,8 +90,9 @@ class Service implements \Box\InjectionAwareInterface
                 $where[] = 'c.id = :cid';
                 $params[':cid'] = $search;
             } else {
-                $where[] = "c.host LIKE :s_host OR c.version LIKE :s_version";
+                $where[] = "c.name LIKE :s_name OR c.host LIKE :s_host OR c.version LIKE :s_version";
                 $search = "%" . $search . "%";
+                $params[':s_name'] = $search;
                 $params[':s_host'] = $search;
                 $params[':s_version'] = $search;
             }
@@ -101,6 +110,7 @@ class Service implements \Box\InjectionAwareInterface
     {
         $details = array(
             'id'    =>  $model->id,
+            'name'    =>  $model->name,
             'host'    =>  $model->host,
             'version'    =>  $model->version,
         );
