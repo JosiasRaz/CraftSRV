@@ -18,4 +18,17 @@ class Admin extends \Api_Abstract
         $service = $this->getService();
         return $service->adminCreateServerMachine($data);
 	}
+
+	public function get_list($data)
+	{
+        $per_page = $this->di['array_get']($data, 'per_page', $this->di['pager']->getPer_page());
+        list($sql, $params) = $this->getService()->getSearchQuery($data);
+        $pager = $this->di['pager']->getSimpleResultSet($sql, $params, $per_page);
+        foreach($pager['list'] as $key => $craftsrvArr){
+            $craftsrv = $this->di['db']->getExistingModelById('craftsrv_machine', $craftsrvArr['id'], 'CraftSRV Machines not found');
+            $pager['list'][$key] = $this->getService()->toApiArray($craftsrv, true, $this->getIdentity());
+        }
+
+        return $pager;
+	}
 }

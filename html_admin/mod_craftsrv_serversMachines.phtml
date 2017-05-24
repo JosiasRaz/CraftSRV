@@ -26,21 +26,36 @@
                 <thead>
                     <tr>
                         <td style="width: 2%"><input type="checkbox" class="batch-delete-master-checkbox"/></td>
-                        <td colspan="2">{% trans 'Api host' %}</td>
+                        <td>{% trans 'Api host' %}</td>
                         <td>{% trans 'Api version' %}</td>
-                        <td width="30%">{% trans 'Token' %}</td>
                         <td width="13%">&nbsp;</td>
                     </tr>
                 </thead>
 
                 <tbody>
+                    {% set craftsrvMachines = admin.craftsrv_get_list({"per_page":30, "page":request.page}|merge(request)) %}
+                    {% for craftsrv in craftsrvMachines.list %}
+                    <tr>
+                        <td><input type="checkbox" class="batch-delete-checkbox" data-item-id="{{ craftsrv.id }}"/></td>
+                        <td>
+                            <a href="{{ 'craftsrv/manage'|alink }}/{{ craftsrv.id }}" title="{{ craftsrv.host }} {{ craftsrv.last_name }}">{{ craftsrv.host}}</a></td>
+                        <td><a href="{{ 'craftsrv/manage'|alink }}/{{ craftsrv.id }}" title="{{ craftsrv.version }}">{{ craftsrv.version }}</a></td>
+                        <td class="actions">
+                            <a class="bb-button btn14" href="{{craftsrv.host}}" target="_blank"><img src="images/icons/dark/cog.png" alt=""></a>
+                            <a class="bb-button btn14 api-link" data-api-msg="Connected" href="{{ 'api/admin/craftsrv/craftsrv_test_connection'|link({'id' : craftsrv.id}) }}" title="Test connection"><img src="images/icons/dark/signal.png" alt=""></a>
+                            <a class="bb-button btn14" href="{{ '/craftsrv/manage'|alink }}/{{craftsrv.id}}"><img src="images/icons/dark/pencil.png" alt=""></a>
+                            <a class="bb-button btn14 bb-rm-tr api-link" data-api-confirm="Are you sure?" data-api-redirect="{{ 'craftsrv'|alink }}" href="{{ 'api/admin/craftsrv/delete'|link({'id' : craftsrv.id}) }}"><img src="images/icons/dark/trash.png" alt=""></a>
+                        </td>
+                    </tr>
+                    {% else %}
                     <tr>
                         <td colspan="7">{% trans 'The list is empty' %}</td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
             {% include "partial_batch_delete.phtml" with {'action' : 'admin/craftsrv/batch_delete'} %}
-            {% include "partial_pagination.phtml" with {'list': clients, 'url':'craftsrv'} %}
+            {% include "partial_pagination.phtml" with {'list': craftsrvMachines, 'url':'craftsrv'} %}
     	</div>
 
         <div class="fix"></div>
