@@ -49,17 +49,4 @@ class Admin implements \Box\InjectionAwareInterface
 		$this->di['is_admin_logged'] ;
 		return $app->render('mod_craftsrv_serversMachines') ;
 	}
-
-	public function create($data)
-	{
-		$required = array(
-			'host'  	=> 'Host required',
-			'version'  	=> 'Version required',
-			'token'  	=> 'Token required',
-		) ;
-        $validator = $this->di['validator'];
-        $validator->checkRequiredParamsForArray($required, $data);
-        $service = $this->getService();
-        return $service->adminCreateServerMachine($data);
-	}
 }
