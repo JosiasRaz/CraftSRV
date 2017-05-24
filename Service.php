@@ -170,4 +170,15 @@ class Service implements \Box\InjectionAwareInterface
         $skypulseService = $this->_SkypulseService($craftsrv) ;
         return json_decode($skypulseService->request('/settings'))->serverDefaultNetworkAddress ;
     }
+
+    public function get_restricted_ports($craftsrv)
+    {
+        $skypulseService = $this->_SkypulseService($craftsrv) ;
+        $servers = json_decode($skypulseService->request('/servers')) ;
+        $restricted_ports = array() ;
+        foreach ($servers as $server) {
+            $restricted_ports[] = $server->port ;
+        }
+        return implode(',', $restricted_ports) ;
+    }
 }
