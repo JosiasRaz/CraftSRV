@@ -1,0 +1,84 @@
+{% extends "layout_default.phtml" %}
+{% set active_menu = 'craftsrv' %}
+{% block meta_title %}{{ craftsrv.name }}{% endblock %}
+
+{% block breadcrumbs %}
+<ul>
+    <li class="firstB"><a href="{{ '/'|alink }}">{% trans 'Home' %}</a></li>
+    <li><a href="{{ 'craftsrv'|alink }}">{% trans 'CraftSRV' %}</a></li>
+    <li class="lastB">{{ craftsrv.name }}</li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<div class="widget simpleTabs">
+
+    <ul class="tabs">
+        <li><a href="#tab-info">{% trans 'CraftSRV' %}</a></li>
+    </ul>
+
+    <div class="tabs_container">
+        <div class="fix"></div>
+        <div class="tab_content nopadding" id="tab-info">
+
+            <div style="position: relative;">
+                <img src="" alt="" style="right: 0; margin: 15px 15px 0 15px; position: absolute; border: 2px solid white; box-shadow: 0px 0px 10px 0px;"/>
+            </div>
+            
+            <table class="tableStatic wide">
+                <tbody>
+                    <tr class="noborder">
+                        <td style="width: 15%">ID:</td>
+                        <td>{{ craftsrv.id }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Name:</td>
+                        <td><strong>{{ craftsrv.name }}</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td>Host:</td>
+                        <td><strong>{{ craftsrv.host }}</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td>API Host:</td>
+                        <td><strong class="{% if craftsrv.ip is defined %}green{% else %}red{% endif %}">{{ craftsrv.api_host }}</strong></td>
+                    </tr>
+
+                    <tr>
+                        <td>API Token:</td>
+                        <td  class="{% if craftsrv.ip is defined %}green{% else %}red{% endif %}">{{ craftsrv.token|truncate(30) }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>IP:</td>
+                        <td>{{ craftsrv.ip|default('000.000.000.000') }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Port ranges:</td>
+                        <td>{{ craftsrv.port_ranges|default('-') }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Restricted ports:</td>
+                        <td>{{ craftsrv.restricted_ports|default('-') }}</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <a href="{{ 'craftsrv/login'|alink }}/{{craftsrv.id}}" class="btnIconLeft mr10 mt5" target="_blank"><img src="images/icons/dark/adminUser.png" alt="" class="icon"><span>Login to CraftSRV panel</span></a>
+                            <a href="{{ 'api/admin/craftsrv/delete'|link({'id' : craftsrv.id}) }}" data-api-confirm="Are you sure?" data-api-redirect="{{ 'craftsrv'|alink }}" class="btnIconLeft mr10 mt5 api-link" ><img src="images/icons/dark/trash.png" alt="" class="icon"><span>Delete</span></a>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

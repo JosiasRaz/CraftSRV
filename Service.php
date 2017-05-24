@@ -168,6 +168,6 @@ class Service implements \Box\InjectionAwareInterface
     public function get_ip($craftsrv)
     {
         $skypulseService = $this->_SkypulseService($craftsrv) ;
-        return json_decode($skypulseService->request('/network/addresses')) ;
+        return json_decode($skypulseService->request('/settings'))->serverDefaultNetworkAddress ;
     }
 }

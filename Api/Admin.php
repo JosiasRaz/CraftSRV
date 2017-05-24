@@ -43,15 +43,13 @@ class Admin extends \Api_Abstract
     {
         $service = $this->getService() ;
         $craftsrv = $service->get($data) ;
-        $craftsrv = $service->toApiArray($craftsrv, $data['deep'], $this->getIdentity()) ;
+        $deep = (isset($data['deep'])) ? $data['deep'] : false ;
+        $craftsrv = $service->toApiArray($craftsrv, $deep, $this->getIdentity()) ;
 
-        if (isset($data['deep']) && $data['deep'])
+        if ($deep)
         {
-            var_dump($service->get_ip($craftsrv)) ; die() ;
             $craftsrv['ip'] = $service->get_ip($craftsrv) ;
         }
-        else
-            $data['deep'] = false ;
 
         return $craftsrv ;
     }
