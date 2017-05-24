@@ -27,7 +27,7 @@ class Service implements \Box\InjectionAwareInterface
             `name` varchar(255) NOT NULL,
             `host` varchar(255) NOT NULL,
             `version` varchar(2) NOT NULL,
-            `token` varchar(255) NOT NULL,
+            `token` TEXT NOT NULL,
             PRIMARY KEY (`id`)
             ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
         $this->di['db']->exec($sql);
