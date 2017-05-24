@@ -31,4 +31,11 @@ class Admin extends \Api_Abstract
 
         return $pager;
 	}
+
+    public function get($data)
+    {
+        $service = $this->getService() ;
+        $craftsrv = $service->get($data) ;
+        return $service->toApiArray($craftsrv, true, $this->getIdentity()) ;
+    }
 }

@@ -115,6 +115,32 @@ class Service implements \Box\InjectionAwareInterface
             'version'    =>  $model->version,
         );
 
+        if ($deep)
+            $details['token'] =  $model->token ;
+
         return $details;
+    }
+
+    public function get($data)
+    {
+        if(!isset($data['id']) && !isset($data['name']))
+        {
+            throw new \Box_Exception('CraftSRV ID or name is required');
+        }
+
+        $db = $this->di['db'] ;
+        $craftsrv = null ;
+
+        if(isset($data['id']))
+        {
+            $craftsrv = $db->findOne('craftsrv_machine', 'id =  ?', array($data['id'])) ;
+        }
+
+        if(!$craftsrv && isset($data['name']))
+        {
+            $craftsrv = $db->findOne('craftsrv_machine', 'name = ?', array($data['name'])) ;
+        }
+
+        return $craftsrv ;
     }
 }
