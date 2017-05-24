@@ -6,6 +6,8 @@ namespace Box\Mod\Craftsrv\Api ;
 
 class Admin extends \Api_Abstract
 {
+    CONST URL_APPEND = '/api' ;
+
 	public function create($data)
 	{
 		$required = array(
@@ -32,10 +34,25 @@ class Admin extends \Api_Abstract
         return $pager;
 	}
 
+    public function get_url_append()
+    {
+        return self::URL_APPEND ;
+    }
+
     public function get($data)
     {
         $service = $this->getService() ;
         $craftsrv = $service->get($data) ;
-        return $service->toApiArray($craftsrv, true, $this->getIdentity()) ;
+        $craftsrv = $service->toApiArray($craftsrv, $data['deep'], $this->getIdentity()) ;
+
+        if (isset($data['deep']) && $data['deep'])
+        {
+            var_dump($service->get_ip($craftsrv)) ; die() ;
+            $craftsrv['ip'] = $service->get_ip($craftsrv) ;
+        }
+        else
+            $data['deep'] = false ;
+
+        return $craftsrv ;
     }
 }

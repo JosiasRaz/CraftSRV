@@ -4,6 +4,14 @@
 */
 namespace Box\Mod\Craftsrv ;
 
+require_once BB_PATH_MODS.'/Craftsrv/OAuth/bootstrap.php' ;
+
+use OAuth\ServiceFactory ;
+use OAuth\Common\Http\Uri\Uri;
+use OAuth\Common\Storage\Session ;
+use OAuth\Common\Consumer\Credentials ;
+use OAuth\OAuth2\Token\Skypulse\SkypulseToken ;
+
 class Service implements \Box\InjectionAwareInterface
 {
 
@@ -116,7 +124,10 @@ class Service implements \Box\InjectionAwareInterface
         );
 
         if ($deep)
+        {
+            $details['api_host'] =  $model->host.$this->di['api_admin']->craftsrv_get_url_append() ;
             $details['token'] =  $model->token ;
+        }
 
         return $details;
     }
@@ -142,5 +153,21 @@ class Service implements \Box\InjectionAwareInterface
         }
 
         return $craftsrv ;
+    }
+
+    private function _SkypulseService($craftsrv)
+    {
+        $storage = new Session() ;
+        $storage->storeAccessToken('Skypulse',new SkypulseToken($craftsrv['token'])) ;
+        $credentials = new Credentials('','','oob') ;
+        $serviceFactory = new ServiceFactory() ;
+        $craftsrv_url = new Uri($craftsrv['api_host'].'/'.$craftsrv['version'].'/') ;
+        return $serviceFactory->createService('Skypulse', $credentials, $storage, array(), $craftsrv_url) ;
+    }
+
+    public function get_ip($craftsrv)
+    {
+        $skypulseService = $this->_SkypulseService($craftsrv) ;
+        return json_decode($skypulseService->request('/network/addresses')) ;
     }
 }

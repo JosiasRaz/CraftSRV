@@ -54,7 +54,7 @@ class Admin implements \Box\InjectionAwareInterface
 	public function get_manage(\Box_App $app, $id)
 	{
 		$api = $this->di['api_admin'] ;
-		$craftsrv = $api->craftsrv_get(array('id'=>$id)) ;
+		$craftsrv = $api->craftsrv_get(array('id'=>$id,'deep'=>true)) ;
 		return $app->render('mod_craftsrv_manage', array('craftsrv'=>$craftsrv)) ;
 	}
 }
