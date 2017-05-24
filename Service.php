@@ -45,7 +45,7 @@ class Service implements \Box\InjectionAwareInterface
 	{
         $srvMachine = $this->di['db']->dispense('craftsrv_machine') ;
         foreach ($srvMachine_array as $field => $value) {
-        	$srvMachine->$field = $value ;
+        	$srvMachine->$field = trim($value,'\s/') ;
         }
         $this->di['db']->store($srvMachine);
         return $srvMachine;
