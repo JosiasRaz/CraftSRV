@@ -68,4 +68,49 @@ class Admin extends \Api_Abstract
 
         return $craftsrv ;
     }
+
+    public function get_games()
+    {
+        $craftsrvs = $this->get_list(array())['list'] ;
+        $all_games = array() ;
+        foreach($craftsrvs as $craftsrv)
+        {
+            $games = $this->getService()->getSupportedGames($craftsrv) ;
+            foreach ($games as $game) {
+                $all_games[] = $game->name ;
+            }
+        }
+        $all_games[10] = 'counterStrikeSource' ;
+        return array_unique($all_games) ;
+    }
+
+    public function get_plans()
+    {
+        $craftsrvs = $this->get_list(array())['list'] ;
+        $all_plans = array() ;
+        foreach($craftsrvs as $craftsrv)
+        {
+            $plans = $this->getService()->getPlans($craftsrv) ;
+            foreach ($plans as $plan) {
+                $all_plans[] = $plan->name ;
+            }
+        }
+        $all_plans[10] = 'counterStrikeSource' ;
+        return array_unique($all_plans) ;
+    }
+
+    public function get_servers()
+    {
+        $craftsrvs = $this->get_list(array())['list'] ;
+        $all_servers = array() ;
+        foreach($craftsrvs as $craftsrv)
+        {
+            $servers = $this->getService()->getServers($craftsrv) ;
+            foreach ($servers as $server) {
+                $all_servers[] = $server->name ;
+            }
+        }
+        $all_servers[10] = 'counterStrikeSource' ;
+        return array_unique($all_servers) ;
+    }
 }

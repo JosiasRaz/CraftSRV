@@ -198,4 +198,19 @@ class Service implements \Box\InjectionAwareInterface
         }
         return implode(', ', $restricted_ports) ;
     }
+
+    public function getSupportedGames($craftsrv)
+    {
+        return json_decode($this->_CraftSRVService($craftsrv)->request('/games')) ;
+    }
+
+    public function getPlans($craftsrv)
+    {
+        return json_decode($this->_CraftSRVService($craftsrv)->request('/plans')) ;
+    }
+
+    public function getServers($craftsrv)
+    {
+        return json_decode($this->_CraftSRVService($craftsrv)->request('/servers')) ;
+    }
 }
