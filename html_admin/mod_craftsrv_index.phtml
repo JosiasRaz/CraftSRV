@@ -62,8 +62,11 @@
         <div class="fix"></div>
         <div class="tab_content nopadding" id="tab-new">
             <form method="post" action="{{ 'api/admin/craftsrv/create'|link }}" class="mainForm api-form save" data-api-redirect="{{ 'craftsrv'|alink }}">
+                <div class="help">
+                    <h3>{% trans 'CraftSRV' %}</h3>
+                </div>
                 <fieldset>
-                    <div class="rowElem">
+                    <div class="rowElem noborder">
                         <label>{% trans 'Name' %}:</label>
                         <div class="formRight">
                             <input type="text" name="name" value="{{request.name}}" required="required"/>
@@ -88,6 +91,29 @@
                         <label>{% trans 'Token' %}:</label>
                         <div class="formRight">
                             <textarea name="token" cols="5" rows="4" required="required">{{request.token}}</textarea>
+                        </div>
+                        <div class="fix"></div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div class="help">
+                        <h3>{% trans 'Ports' %}</h3>
+                    </div>
+                    <div class="rowElem noborder">
+                        <label>{% trans 'Port range' %}:</label>
+                        <div class="formRight moreFields">
+                            <ul>
+                                <li style="width: 50px"><input type="text" name="port_ranges_min" value="{{request.port_ranges_min|default(1)}}"/></li>
+                                <li class="sep">-</li>
+                                <li style="width: 50px"><input type="text" name="port_ranges_max" value="{{request.port_ranges_max|default(65535)}}" /></li>
+                            </ul>
+                        </div>
+                        <div class="fix"></div>
+                    </div>
+                    <div class="rowElem">
+                        <label>{% trans 'Restricted ports' %}:</label>
+                        <div class="formRight">
+                            <input type="text" name="restricted_ports" value="{{request.restricted_ports|default(0)}}" required="required"/>
                         </div>
                         <div class="fix"></div>
                     </div>

@@ -36,7 +36,7 @@ class Service implements \Box\InjectionAwareInterface
             `host` varchar(255) NOT NULL,
             `version` varchar(2) NOT NULL,
             `token` TEXT NOT NULL,
-            `port_ranges` TEXT DEFAULT NULL,
+            `port_ranges` varchar(11) DEFAULT NULL,
             `restricted_ports` TEXT DEFAULT NULL,
             PRIMARY KEY (`id`)
             ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
@@ -49,6 +49,9 @@ class Service implements \Box\InjectionAwareInterface
         foreach ($srvMachine_array as $field => $value) {
         	$srvMachine->$field = trim($value,'/') ;
         }
+        $srvMachine->port_ranges = $srvMachine->port_ranges_min . '-' . $srvMachine->port_ranges_max ;
+        unset($srvMachine->port_ranges_min) ;
+        unset($srvMachine->port_ranges_max) ;
         $this->di['db']->store($srvMachine);
         return $srvMachine;
 	}
