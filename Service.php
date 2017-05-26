@@ -165,12 +165,6 @@ class Service implements \Box\InjectionAwareInterface
         return $serviceFactory->createService('CraftSRV', $credentials, $storage, array(), $craftsrv_url) ;
     }
 
-    public function get_ip($craftsrv)
-    {
-        $craftsrvService = $this->_CraftSRVService($craftsrv) ;
-        return json_decode($craftsrvService->request('/settings'))->serverDefaultNetworkAddress ;
-    }
-
     public function get_setting($craftsrv)
     {
         $craftsrvService = $this->_CraftSRVService($craftsrv) ;

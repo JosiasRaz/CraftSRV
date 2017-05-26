@@ -48,7 +48,9 @@ class Admin extends \Api_Abstract
 
         if ($deep)
         {
-            $craftsrv['ip'] = $service->get_ip($craftsrv) ;
+            $craftsrv_setting = $service->get_setting($craftsrv) ;
+            $craftsrv['ip'] = $craftsrv_setting->serverDefaultNetworkAddress ;
+            $craftsrv['logo_url'] = $service->get_setting($craftsrv)->panelLogo  ;
             $craftsrv['occupied_ports'] = $service->get_restricted_ports($craftsrv) ;
         }
 
