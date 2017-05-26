@@ -31,7 +31,7 @@ class Admin implements \Box\InjectionAwareInterface
 			'subpages' => array(
                 array(
                     'location'  => 'craftsrv',
-                    'label'     => 'Servers Machines',
+                    'label'     => 'Overview',
                     'index'     => 1000,
                     'uri'       => $this->di['url']->adminLink('craftsrv'),
                 ),
@@ -48,7 +48,7 @@ class Admin implements \Box\InjectionAwareInterface
 	public function get_index(\Box_App $app)
 	{
 		$this->di['is_admin_logged'] ;
-		return $app->render('mod_craftsrv_serversMachines') ;
+		return $app->render('mod_craftsrv_index') ;
 	}
 
 	public function get_manage(\Box_App $app, $id)
