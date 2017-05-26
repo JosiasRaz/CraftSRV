@@ -10,7 +10,7 @@ use OAuth\ServiceFactory ;
 use OAuth\Common\Http\Uri\Uri;
 use OAuth\Common\Storage\Session ;
 use OAuth\Common\Consumer\Credentials ;
-use OAuth\OAuth2\Token\Skypulse\SkypulseToken ;
+use OAuth\OAuth2\Token\CraftSRV\CraftSRVToken ;
 
 class Service implements \Box\InjectionAwareInterface
 {
@@ -155,26 +155,32 @@ class Service implements \Box\InjectionAwareInterface
         return $craftsrv ;
     }
 
-    private function _SkypulseService($craftsrv)
+    private function _CraftSRVService($craftsrv)
     {
         $storage = new Session() ;
-        $storage->storeAccessToken('Skypulse',new SkypulseToken($craftsrv['token'])) ;
+        $storage->storeAccessToken('CraftSRV',new CraftSRVToken($craftsrv['token'])) ;
         $credentials = new Credentials('','','oob') ;
         $serviceFactory = new ServiceFactory() ;
         $craftsrv_url = new Uri($craftsrv['api_host'].'/'.$craftsrv['version'].'/') ;
-        return $serviceFactory->createService('Skypulse', $credentials, $storage, array(), $craftsrv_url) ;
+        return $serviceFactory->createService('CraftSRV', $credentials, $storage, array(), $craftsrv_url) ;
     }
 
     public function get_ip($craftsrv)
     {
-        $skypulseService = $this->_SkypulseService($craftsrv) ;
-        return json_decode($skypulseService->request('/settings'))->serverDefaultNetworkAddress ;
+        $craftsrvService = $this->_CraftSRVService($craftsrv) ;
+        return json_decode($craftsrvService->request('/settings'))->serverDefaultNetworkAddress ;
+    }
+
+    public function get_setting($craftsrv)
+    {
+        $craftsrvService = $this->_CraftSRVService($craftsrv) ;
+        return json_decode($craftsrvService->request('/settings')) ;
     }
 
     public function get_restricted_ports($craftsrv)
     {
-        $skypulseService = $this->_SkypulseService($craftsrv) ;
-        $servers = json_decode($skypulseService->request('/servers')) ;
+        $craftsrvService = $this->_CraftSRVService($craftsrv) ;
+        $servers = json_decode($craftsrvService->request('/servers')) ;
         $restricted_ports = array() ;
         foreach ($servers as $server) {
             $restricted_ports[] = $server->port ;

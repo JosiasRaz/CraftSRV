@@ -10,7 +10,7 @@ use OAuth\Common\Http\Client\ClientInterface;
 use OAuth\Common\Storage\TokenStorageInterface;
 use OAuth\Common\Http\Uri\UriInterface;
 
-class Skypulse extends AbstractService
+class CraftSRV extends AbstractService
 {
     public function __construct(
         CredentialsInterface $credentials,

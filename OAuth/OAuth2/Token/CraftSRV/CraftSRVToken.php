@@ -1,11 +1,11 @@
 <?php 
 use OAuth\Common\Token\AbstractToken ;
-namespace OAuth\OAuth2\Token\Skypulse ;
+namespace OAuth\OAuth2\Token\CraftSRV ;
 
 /**
 * 
 */
-class SkypulseToken extends \OAuth\Common\Token\AbstractToken
+class CraftSRVToken extends \OAuth\Common\Token\AbstractToken
 {
 
 	public function __construct($token)
