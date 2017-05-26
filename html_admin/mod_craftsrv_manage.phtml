@@ -59,8 +59,13 @@
                     </tr>
 
                     <tr>
-                        <td>Port ranges:</td>
-                        <td>{{ craftsrv.port_ranges|default('-') }}</td>
+                        <td>Port range(s):</td>
+                        <td>{{ craftsrv.port_ranges|default('All unused port') }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Port(s) used:</td>
+                        <td>{{ craftsrv.occupied_ports|default('-')|truncate(30) }}</td>
                     </tr>
 
                     <tr>
@@ -71,7 +76,7 @@
                 <tfoot>
                     <tr>
                         <td colspan="2">
-                            <a href="{{ 'craftsrv/login'|alink }}/{{craftsrv.id}}" class="btnIconLeft mr10 mt5" target="_blank"><img src="images/icons/dark/adminUser.png" alt="" class="icon"><span>Login to CraftSRV panel</span></a>
+                            <a href="{{ craftsrv.host }}" class="btnIconLeft mr10 mt5" target="_blank"><img src="images/icons/dark/adminUser.png" alt="" class="icon"><span>Login to CraftSRV panel</span></a>
                             <a href="{{ 'api/admin/craftsrv/delete'|link({'id' : craftsrv.id}) }}" data-api-confirm="Are you sure?" data-api-redirect="{{ 'craftsrv'|alink }}" class="btnIconLeft mr10 mt5 api-link" ><img src="images/icons/dark/trash.png" alt="" class="icon"><span>Delete</span></a>
                         </td>
                     </tr>

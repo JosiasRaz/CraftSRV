@@ -179,6 +179,6 @@ class Service implements \Box\InjectionAwareInterface
         foreach ($servers as $server) {
             $restricted_ports[] = $server->port ;
         }
-        return implode(',', $restricted_ports) ;
+        return implode(', ', $restricted_ports) ;
     }
 }
