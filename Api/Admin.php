@@ -21,6 +21,24 @@ class Admin extends \Api_Abstract
         return $service->adminCreateServerMachine($data);
 	}
 
+    public function check($data)
+    {
+        $required = array(
+            'host'      => 'Host required',
+            'version'   => 'Version required',
+            'token'     => 'Token required',
+        ) ;
+        $validator = $this->di['validator'];
+        $validator->checkRequiredParamsForArray($required, $data);
+    }
+
+    public function update($data)
+    {
+        $this->check($data) ;
+        $service = $this->getService() ;
+        return $service->adminUpdateServerMachine($data) ;
+    }
+
 	public function get_list($data)
 	{
         $per_page = $this->di['array_get']($data, 'per_page', $this->di['pager']->getPer_page());

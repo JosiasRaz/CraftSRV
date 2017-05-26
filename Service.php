@@ -36,6 +36,8 @@ class Service implements \Box\InjectionAwareInterface
             `host` varchar(255) NOT NULL,
             `version` varchar(2) NOT NULL,
             `token` TEXT NOT NULL,
+            `port_ranges` TEXT DEFAULT NULL,
+            `restricted_ports` TEXT DEFAULT NULL,
             PRIMARY KEY (`id`)
             ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
         $this->di['db']->exec($sql);
@@ -50,6 +52,16 @@ class Service implements \Box\InjectionAwareInterface
         $this->di['db']->store($srvMachine);
         return $srvMachine;
 	}
+
+    public function adminUpdateServerMachine(array $srvMachine_array)
+    {
+        $srvMachine = $this->di['db']->getExistingModelById('craftsrv_machine', $this->di['array_get']($srvMachine_array, 'id'), 'CraftSRV not found') ;
+        foreach ($srvMachine_array as $field => $value) {
+            $srvMachine->$field = trim($value,'/') ;
+        }
+        $this->di['db']->store($srvMachine);
+        return $srvMachine;
+    }
 
 	public function uninstall()
     {
@@ -121,6 +133,8 @@ class Service implements \Box\InjectionAwareInterface
             'name'    =>  $model->name,
             'host'    =>  $model->host,
             'version'    =>  $model->version,
+            'port_ranges'    =>  $model->port_ranges,
+            'restricted_ports'    =>  $model->restricted_ports,
         );
 
         if ($deep)

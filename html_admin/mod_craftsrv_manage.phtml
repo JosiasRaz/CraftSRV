@@ -16,6 +16,7 @@
 
     <ul class="tabs">
         <li><a href="#tab-info">{% trans 'CraftSRV' %}</a></li>
+        <li><a href="#tab-edit">{% trans 'Edit' %}</a></li>
     </ul>
 
     <div class="tabs_container">
@@ -82,6 +83,80 @@
                     </tr>
                 </tfoot>
             </table>
+        </div>
+
+        <div class="tab_content nopadding" id="tab-edit">
+
+            <div class="help">
+                <h3>{% trans 'CraftSRV' %}</h3>
+            </div>
+
+            <form method="post" action="{{ 'api/admin/craftsrv/update'|link }}" class="mainForm api-form save" data-api-msg="{% trans 'CraftSRV updated' %}" data-api-redirect="{{ 'craftsrv/manage'|alink }}/{{ craftsrv.id }}" >
+                <fieldset>
+                    <div class="rowElem">
+                        <label>{% trans 'Name' %}:</label>
+                        <div class="formRight">
+                            <input type="text" name="name" value="{{craftsrv.name}}" required="required"/>
+                        </div>
+                        <div class="fix"></div>
+                    </div>
+                    <div class="rowElem">
+                        <label>{% trans 'Host' %}:</label>
+                        <div class="formRight">
+                            <input type="text" name="host" value="{{craftsrv.host}}" required="required"/>
+                        </div>
+                        <div class="fix"></div>
+                    </div>
+                    <div class="rowElem">
+                        <label>{% trans 'Version' %}:</label>
+                        <div class="formRight">
+                            <input type="text" name="version" value="{{craftsrv.version}}" required="required"/>
+                        </div>
+                        <div class="fix"></div>
+                    </div>
+                    <div class="rowElem">
+                        <label>{% trans 'Token' %}:</label>
+                        <div class="formRight">
+                            <textarea name="token" cols="5" rows="4" required="required">{{craftsrv.token}}</textarea>
+                        </div>
+                        <div class="fix"></div>
+                    </div>
+                    <input type="submit" value="{% trans 'Update' %}" class="greyishBtn submitForm" />
+                </fieldset>
+            
+            <div class="help">
+                <h3>{% trans 'Ports' %}</h3>
+            </div>
+                <fieldset>
+
+                    <div class="rowElem noborder">
+                        <label>{% trans 'Port range(s)' %}</label>
+                        <div class="formRight">
+                            <input type="text" name="port_ranges" value="{{ craftsrv.port_ranges }}" />
+                        </div>
+                        <div class="fix"></div>
+                    </div>
+
+                    <div class="rowElem noborder">
+                        <label>{% trans 'Port(s) used' %}</label>
+                        <div class="formRight">
+                            <span>{{ craftsrv.occupied_ports }}</span>
+                        </div>
+                        <div class="fix"></div>
+                    </div>
+
+                    <div class="rowElem noborder">
+                        <label>{% trans 'Restricted ports' %}</label>
+                        <div class="formRight">
+                            <input type="text" name="restricted_ports" value="{{ craftsrv.restricted_ports }}" />
+                        </div>
+                        <div class="fix"></div>
+                    </div>
+
+                    <input type="submit" value="{% trans 'Update' %}" class="greyishBtn submitForm" />
+                    <input type="hidden" name="id" value="{{ craftsrv.id }}"/>
+                </fieldset>
+            </form>
         </div>
     </div>
 </div>
