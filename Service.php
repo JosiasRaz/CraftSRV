@@ -62,6 +62,9 @@ class Service implements \Box\InjectionAwareInterface
         foreach ($srvMachine_array as $field => $value) {
             $srvMachine->$field = trim($value,'/') ;
         }
+        $srvMachine->port_ranges = $srvMachine->port_ranges_min . '-' . $srvMachine->port_ranges_max ;
+        unset($srvMachine->port_ranges_min) ;
+        unset($srvMachine->port_ranges_max) ;
         $this->di['db']->store($srvMachine);
         return $srvMachine;
     }
