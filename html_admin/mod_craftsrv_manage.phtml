@@ -131,8 +131,13 @@
 
                     <div class="rowElem noborder">
                         <label>{% trans 'Port range(s)' %}</label>
-                        <div class="formRight">
-                            <input type="text" name="port_ranges" value="{{ craftsrv.port_ranges }}" />
+                        {% set port_ranges = craftsrv.port_ranges|split('-') %}
+                        <div class="formRight moreFields">
+                            <ul>
+                                <li style="width: 50px"><input type="text" name="port_ranges_min" value="{{ port_ranges.0 }}"/></li>
+                                <li class="sep">-</li>
+                                <li style="width: 50px"><input type="text" name="port_ranges_max" value="{{ port_ranges.1 }}" /></li>
+                            </ul>
                         </div>
                         <div class="fix"></div>
                     </div>
