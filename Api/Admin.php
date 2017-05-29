@@ -80,7 +80,6 @@ class Admin extends \Api_Abstract
                 $all_games[] = $game->name ;
             }
         }
-        $all_games[10] = 'counterStrikeSource' ;
         return array_unique($all_games) ;
     }
 
@@ -110,7 +109,6 @@ class Admin extends \Api_Abstract
                 $all_servers[] = $server->name ;
             }
         }
-        $all_servers[10] = 'counterStrikeSource' ;
         return array_unique($all_servers) ;
     }
 }
