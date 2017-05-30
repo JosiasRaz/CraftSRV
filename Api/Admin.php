@@ -77,10 +77,10 @@ class Admin extends \Api_Abstract
         {
             $games = $this->getService()->getSupportedGames($craftsrv) ;
             foreach ($games as $game) {
-                $all_games[] = $game->name ;
+                $all_games[$game->name] = $game->name ;
             }
         }
-        return array_unique($all_games) ;
+        return $all_games ;
     }
 
     public function get_plans()
@@ -91,7 +91,7 @@ class Admin extends \Api_Abstract
         {
             $plans = $this->getService()->getPlans($craftsrv) ;
             foreach ($plans as $plan) {
-                $all_plans[] = $plan->name ;
+                $all_plans[$plan->id] = $plan->name ;
             }
         }
         return array_unique($all_plans) ;
