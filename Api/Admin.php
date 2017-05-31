@@ -121,4 +121,26 @@ class Admin extends \Api_Abstract
         $user['powerUser'] = false ;
         return $this->getService()->createUser($craftsrv, $user) ;
     }
+
+    public function createServer($server)
+    {
+        $craftsrv = $server['craftsrv'] ;
+        unset($server['craftsrv']) ;
+        return $this->getService()->createServer($craftsrv, $server) ;
+    }
+
+    public function getUnusedPort($craftsrv)
+    {
+        $port_ranges = explode('-', $craftsrv['port_ranges']) ; 
+        $ports_used = explode(', ', $craftsrv['occupied_ports']) ;
+        $port_unused = 1 ;
+        for ($i=$port_ranges[0]; $i <= $port_ranges[1]; $i++) { 
+            if (!in_array($i, $ports_used))
+            {
+                $port_unused = $i ;
+                break ;
+            }
+        }
+        return $port_unused ;
+    }
 }

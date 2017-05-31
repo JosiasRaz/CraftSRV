@@ -199,6 +199,7 @@ class Service implements \Box\InjectionAwareInterface
         foreach ($servers as $server) {
             $restricted_ports[] = $server->port ;
         }
+        sort($restricted_ports) ;
         return implode(', ', $restricted_ports) ;
     }
 
@@ -220,5 +221,10 @@ class Service implements \Box\InjectionAwareInterface
     public function createUser($craftsrv, $user)
     {
         return json_decode($this->_CraftSRVService($craftsrv)->request('/users', 'POST', $user)) ;
+    }
+
+    public function createServer($craftsrv, $server)
+    {
+        return json_decode($this->_CraftSRVService($craftsrv)->request('/servers', 'POST', $server)) ;
     }
 }
