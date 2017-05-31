@@ -216,4 +216,9 @@ class Service implements \Box\InjectionAwareInterface
     {
         return json_decode($this->_CraftSRVService($craftsrv)->request('/servers')) ;
     }
+
+    public function createUser($craftsrv, $user)
+    {
+        return json_decode($this->_CraftSRVService($craftsrv)->request('/users', 'POST', $user)) ;
+    }
 }
