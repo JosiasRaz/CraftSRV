@@ -113,14 +113,12 @@ class Admin extends \Api_Abstract
 
     public function createUser($user)
     {
-        $servers_id = json_decode($user['server_ids']) ;
-        //simple server
-        $craftsrv_id = array_shift($servers_id) ;
+        $craftsrv_id = $user['server_id'] ;
         $craftsrvs = $this->get_list(array('search'=>$craftsrv_id))['list'] ;
         $craftsrv = array_shift($craftsrvs) ;
-        unset($user['server_ids']) ;
+        unset($user['server_id']) ;
         $user['locked'] = false ;
         $user['powerUser'] = false ;
-        $this->getService()->createUser($craftsrv, $user) ;
+        return $this->getService()->createUser($craftsrv, $user) ;
     }
 }
