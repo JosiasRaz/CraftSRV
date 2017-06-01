@@ -5,7 +5,8 @@
 {% block top_content %}
 <div class="stats">
     <ul>
-        <li class="last"><a href="{{ 'craftsrv'|alink }}" class="count grey" title="">0</a><span>{% trans 'Total' %}</span></li>
+        {% set craftsrvMachines = admin.craftsrv_get_list({"per_page":30, "page":request.page}|merge(request)) %}
+        <li class="last"><a href="{{ 'craftsrv'|alink }}" class="count grey" title="">{{ craftsrvMachines.list|length }}</a><span>{% trans 'Total' %}</span></li>
     </ul>
     <div class="fix"></div>
 </div>
