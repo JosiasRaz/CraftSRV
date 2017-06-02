@@ -22,6 +22,10 @@ class Admin extends \Api_Abstract
             'version'   => 'Version required',
             'token'     => 'Token required',
         ) ;
+        if (is_numeric($data['version']))
+            $data['version'] = 'v'.$data['version'] ;
+        if (!preg_match('`v[0-9]+`', $data['version']))
+            throw new \Box_Exception('Version is not valid', 701) ;
         $validator = $this->di['validator'];
         $validator->checkRequiredParamsForArray($required, $data);
     }
