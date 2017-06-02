@@ -227,4 +227,9 @@ class Service implements \Box\InjectionAwareInterface
     {
         return json_decode($this->_CraftSRVService($craftsrv)->request('/servers', 'POST', $server)) ;
     }
+
+    public funCtion remove($model)
+    {
+        $this->di['db']->trash($model) ;
+    }
 }
