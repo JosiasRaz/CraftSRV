@@ -232,4 +232,9 @@ class Service implements \Box\InjectionAwareInterface
     {
         $this->di['db']->trash($model) ;
     }
+
+    public function testConnection($craftsrv_machine)
+    {
+        return $this->get_setting($craftsrv_machine) ;
+    }
 }

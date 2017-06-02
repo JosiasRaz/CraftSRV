@@ -157,4 +157,16 @@ class Admin extends \Api_Abstract
         $this->di['events_manager']->fire(array('event'=>'onAfterAdminCraftSRVDelete', 'params'=>array('id'=>$id)));
         return true ;
     }
+
+    public function craftsrv_test_connection($data)
+    {
+        $required = array(
+            'id' => 'Craftsrv id is missing',
+        ) ;
+        $this->di['validator']->checkRequiredParamsForArray($required, $data);
+        $model = $this->di['db']->getExistingModelById('craftsrv_machine', $data['id'], 'CraftSRV not found');
+        $service = $this->getService() ;
+        $craftsrv = $service->toApiArray($model,true,$this->getIdentity()) ;
+        return (bool) $this->getService()->testConnection($craftsrv) ;
+    }
 }
