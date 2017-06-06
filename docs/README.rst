@@ -33,6 +33,7 @@ ajout des serveurs machines
 ---------------------------
 On peut facilement ajouter des serveurs machines en allant dans l'onglet **CraftSRV** puis Overview après on clique sur **New CraftSRV** .
 Après cela on est face à un formulaire qui comprend **4 champs obligatoires**:
+
 - Nom du serveur machine
 - L'hôte du serveur lors de l' achat de celui-ci au `GamePanelioAPI`<https://
 docs.gamepanel.io/api/>_ .
@@ -40,6 +41,7 @@ docs.gamepanel.io/api/>_ .
 - et le Token qui n'est autre que le jeton renvoyé par le serveur machine(comme skypulse par exemple).
 
 et **2 champs facultatifs**:
+
 - une plage de port
 - les ports qu'on veut interdir (on les sépare par des virgules dans le cas où il y en a plusierus)
 
