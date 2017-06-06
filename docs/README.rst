@@ -26,7 +26,7 @@ Et on observe sur le coin à doite succéssivement le **paneau de configuration 
 
 Le bouton d'édition
 ^^^^^^^^^^^^^^^^^^^
-Premièrement, ici, on peut voir l'adresse **IP** du serveur à créer ainsi que les ports déjà ocuppés. Aussi, c'est ici qu'on a la possibilité d'éditer le **nom**, l'**hôte**, la **version** , le **token** et les **ports** du serveur machine en question.  
+Premièrement, ici, on peut voir l'adresse **IP** du serveur à créer ainsi que les ports déjà ocuppés. Aussi, c'est ici qu'on a la possibilité d'éditer le **nom**, l\'**hôte**, la **version** , le **token** et les **ports** du serveur machine en question.  
 
 Ajout des serveurs machines
 ---------------------------
@@ -34,9 +34,8 @@ On peut facilement ajouter des serveurs machines en allant dans l'onglet **Craft
 Après cela on sera face à un formulaire qui comprend **4 champs obligatoires** à savoir :
 
 - Le nom du serveur machine
-- L'hôte du serveur lors de l' achat de celui-ci au `GamePanelioAPI`<https://
-docs.gamepanel.io/api/>_ .
-- La version de l'API courant qu'on peut voir `ici` <http://docs.gamepanel.io/api>_ .
+- L'hôte du serveur lors de l' achat de celui-ci au `GamePanelioAPI <https://docs.gamepanel.io/api/>`_ .
+- La version de l'API courant qu'on peut voir `ici <http://docs.gamepanel.io/api>`_ .
 - et le Token qui n'est autre que le jeton renvoyé par le serveur machine(comme skypulse par exemple).
 
 et **2 champs facultatifs**:
