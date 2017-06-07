@@ -146,7 +146,7 @@ Dans ce cas, lors d'un séléction d'un produit pour le commander vous devrez in
 
 Ensuite, cliquer sur **Order**, puis **checkout** enfin vous faites le **payement**.
 
-Que vous avez déjà un compte ou pas, si tout se déroule très bien comme il faut vous devrez avoir un **Active** en vert à côté de votre produit (cela signifie autrement que l'avez bien payé !!) comme sur la figure suivante.
+Que vous avez déjà un compte ou pas, si tout se déroule très bien comme il faut vous devrez avoir un **Active** en vert à côté de votre produit (cela signifie autrement que vous l'avez bien payé !!) comme sur la figure suivante.
 
 .. image:: imgs/Front-office/image-06.PNG
    :align: center
