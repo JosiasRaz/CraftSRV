@@ -123,7 +123,7 @@ Pour ce faire, cliquer sur le bouton **New Order**. Vous verez après les listes
 .. image:: imgs/Front-office/image-02.PNG
    :align: center
 
-Selectionner ce que vous voulez ! Mais 2 cas peuvent se présenter si vous avez déjà un compte CraftSRV ou pas.
+Selectionner un produit de type gameCraftSRV ! Mais 2 cas peuvent se présenter si vous avez déjà un compte CraftSRV ou pas.
 
 Le client n'a pas de compte CraftSRV
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
