@@ -114,11 +114,11 @@ Pour s'authentifier en tant que client, il va falloir se rendre à cet url : *ht
 
 Entrez **l'adresse éléctronique** et le **mot de passe** en tant que client et cliquez sur **Log in**.
 
-Maintenant, vous pouvez commander des produits de type gameCraftSRV !
+Maintenant, vous pouvez commander des produits configurations serveurs de type gameCraftSRV !
 
 Achats des produits de type gameCraftSRV
 ----------------------------------------
-Pour ce faire, cliquer sur le bouton **New Order**. Vous verez après les listes des différents produits.
+Pour ce faire, cliquer sur le bouton **New Order**. Vous verez après les listes des différents produits configurations serveurs de type GameCraft.
 
 .. image:: imgs/Front-office/image-02.PNG
    :align: center
@@ -139,14 +139,14 @@ Remplissez tous ces informations et faites **Sing up** et le compte sera créer!
 
 Le client a déjà un compte CraftSRV
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Dans ce cas, lors d'un séléction d'un produit pour le commander vous devrez indiquer le **nom du seerveur** (*Server name* en anglais) commme suit :
+Dans ce cas, lors d'un séléction d'un produit de type GameCraft pour le commander vous devrez indiquer le **nom du serveur** (*Server name* en anglais) commme suit :
 
 .. image :: imgs/Front-office/image-05.PNG
    :align: center
 
 Ensuite, cliquer sur **Order**, puis **checkout** enfin vous faites le **payement**.
 
-Que vous avez déjà un compte ou pas, si tout se déroule très bien comme il faut vous devrez avoir un **Active** en vert à côté de votre produit (cela signifie autrement que vous l'avez bien payé !!) comme sur la figure suivante.
+Que vous avez déjà un compte ou pas, si tout se déroule très bien comme il faut vous devrez avoir un **Active** en vert à côté de votre produit de type GameCraft(cela signifie autrement que vous l'avez bien payé !!) comme sur la figure suivante.
 
 .. image:: imgs/Front-office/image-06.PNG
    :align: center
