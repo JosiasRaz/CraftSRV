@@ -12,7 +12,11 @@ Back office
 Authentification
 ----------------
 Pour s'authentifier il faut se rendre sur l'url : *url_du_boxbilling/index.php?_url=/bb-admin*.
-Après on loge avec **l'adresse éléctronique** et le **mot de passe** en tant que admin.
+
+.. image:: imgs/image-1.0.PNG
+   :align: center
+
+Après vous logez avec votre **adresse éléctronique** et **mot de passe** en tant que admin.
 
 Installation (serveur machine)
 ------------------------------
@@ -23,7 +27,7 @@ On sera rédiriger directement vers l'url : *url_du_boxbilling/index.php?_url=/b
 Gestion des serveurs machines 
 -----------------------------
 Pour gérer ses serveurs, il faut aller dans l'onglet **CraftSRV -> Overview**.
-Et sur le coin à doite,  on observe, respectivement le **paneau de configuration du host** (par exemple, ici le host est, skypulse), le bouton permettant de **tester si on n'est pas connécté ou pas** et finalement un **bouton d'édition** le tout illustrés sur la figure suivante (encadré en rouge).
+Et sur le coin à doite,  on observe, respectivement le **paneau de configuration du host** (par exemple, ici le host est, skypulse), le bouton permettant de **tester si on est connécté ou pas** et finalement un **bouton d'édition** le tout illustrés sur la figure suivante (encadré en rouge).
 
 .. image:: imgs/image-1.PNG
    :align: center
