@@ -129,7 +129,7 @@ Le client n'a pas de compte CraftSRV
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Evidemment, il va falloire en créer un. Pour cela, cliquer sur le lien *Register as a CraftSRV user*.
 
-On sera face à cet formulaire :
+Vous serez face à cet formulaire :
 
 .. image:: imgs/Front-office/image-04.PNG
    :align: center
