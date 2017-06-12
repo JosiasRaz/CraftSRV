@@ -14,7 +14,7 @@ Il faut se rendre dans **Products -> Products & Services** (encadré et soulign�
 
 Et là,  il y a **trois propriétés** à spécifier (encadré en rouge) : 
 
-- Une liste déroulante permettant de choisir **le type du produit**, 
+- Une liste déroulante permettant de choisir **le type du produit Gamecraftsrv**, 
 - idem pour sa catégorie
 - enfin, un champ pour le **nom** du produit.
 
@@ -36,11 +36,11 @@ Pour s'authentifier en tant que client, il va falloir se rendre à cet url : *ht
 
 Entrez **l'adresse éléctronique** et le **mot de passe** en tant que client et cliquez sur **Log in**.
 
-Maintenant, vous pouvez commander des produits configurations serveurs de type gameCraftSRV !
+Maintenant, vous pouvez commander des produits configurations serveurs de type GameCraftSRV !
 
 Achats des produits de type gameCraftSRV
 ----------------------------------------
-Pour ce faire, cliquer sur le bouton **New Order**. Vous verez après les listes des différents produits configurations serveurs de type GameCraft.
+Pour ce faire, cliquer sur le bouton **New Order**. Vous verez après les listes des différents produits.
 
 .. image:: imgs/Front-office/image-02.PNG
    :align: center
