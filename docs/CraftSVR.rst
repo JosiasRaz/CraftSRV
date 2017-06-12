@@ -1,9 +1,5 @@
-
-Manuel d'utilisation
-********************
-
-Back office
-===========
+CraftSVR
+********
 
 Authentification
 ----------------
