@@ -1,0 +1,165 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Manuel d’utilisation &#8212; documentation CraftSRV 0.1.0</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="manuel-d-utilisation">
+<h1>Manuel d’utilisation<a class="headerlink" href="#manuel-d-utilisation" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="back-office">
+<h2>Back office<a class="headerlink" href="#back-office" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="authentification">
+<h3>Authentification<a class="headerlink" href="#authentification" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour s’authentifier il faut se rendre sur l’url : <em>url_du_boxbilling/index.php?_url=/bb-admin</em>.</p>
+<img alt="_images/image-1.0.PNG" class="align-center" src="_images/image-1.0.PNG" />
+<p>Après vous logez avec votre <strong>adresse éléctronique</strong> et <strong>mot de passe</strong> en tant que admin.</p>
+</div>
+<div class="section" id="installation-serveur-machine">
+<h3>Installation (serveur machine)<a class="headerlink" href="#installation-serveur-machine" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dérouler le menu <strong>Extensions -&gt; Overview</strong> puis il ne reste plus qu’à <strong>activer</strong> le <strong>CraftSRV 0.1.0</strong> en cliquant sur <strong>Activate</strong>.</p>
+<img alt="_images/image-1.0.1.PNG" src="_images/image-1.0.1.PNG" />
+<p>On sera rédiriger directement vers l’url : <em>url_du_boxbilling/index.php?_url=/bb-admin/craftsrv</em>. Et c’est ici que vous pouvez gérer votre serveur machine. Oui, mais comment?</p>
+</div>
+<div class="section" id="gestion-des-serveurs-machines">
+<h3>Gestion des serveurs machines<a class="headerlink" href="#gestion-des-serveurs-machines" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Pour gérer ses serveurs, il faut aller dans l’onglet <strong>CraftSRV -&gt; Overview</strong>.
+Et sur le coin à doite,  on observe, respectivement le <strong>paneau de configuration du host</strong> (par exemple, ici le host est, skypulse), le bouton permettant de <strong>tester si on est connécté ou pas</strong> et finalement un <strong>bouton d’édition</strong> le tout illustrés sur la figure suivante (encadré en rouge).</p>
+<img alt="_images/image-1.PNG" class="align-center" src="_images/image-1.PNG" />
+<div class="section" id="la-page-d-edition">
+<h4>La page d’édition<a class="headerlink" href="#la-page-d-edition" title="Lien permanent vers ce titre">¶</a></h4>
+<p>Lorsque vous cliquez sur le bouton éditer, vous aurez</p>
+<img alt="_images/image-2.PNG" class="align-center" src="_images/image-2.PNG" />
+<p>Premièrement, on peut voir plein d’information apropos du serveur machine comme l’adresse <strong>IP</strong> du serveur à créer ainsi que les ports déjà ocuppés, pour ne citer que cela.</p>
+<p>Aussi, c’est ici qu’on a la possibilité d’éditer le <strong>nom</strong>, <strong>l’hôte</strong>, la <strong>version</strong> , le <strong>token</strong> et les <strong>ports</strong> du serveur machine en question en allant dans l’onglet <strong>Edit</strong> comme nous montre la figure suivante.</p>
+<img alt="_images/image-3.PNG" class="align-center" src="_images/image-3.PNG" />
+<p>Après modiffication souhaitée, cliquer sur <strong>UPDATE</strong> et tout sera enregistre avec ce que vous viens de modiffier.</p>
+<p>Tout ceci est beau mais où est-ce qu’on peut créer ces serveurs?</p>
+</div>
+</div>
+<div class="section" id="ajout-des-serveurs-machines">
+<h3>Ajout des serveurs machines<a class="headerlink" href="#ajout-des-serveurs-machines" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Vous pouvez facilement ajouter une nouvrelle serveur machine ! Rendez vous dans le menu <strong>CraftSRV -&gt; Overview</strong> après cliquer sur l’onglet <strong>New CraftSRV</strong> .</p>
+<p>Un formulaire qui comprend <strong>6 champs</strong> apparaît.</p>
+<img alt="_images/image-3'.PNG" class="align-center" src="_images/image-3'.PNG" />
+<p>Completez les <strong>4 premiers champs obligatoires</strong> avec :</p>
+<ul class="simple">
+<li>Le <strong>nom</strong> du serveur machine</li>
+<li><strong>L’hôte</strong> du serveur lors de l” achat de celui-ci au <a class="reference external" href="https://docs.gamepanel.io/api/">GamePanelioAPI</a> .</li>
+<li>La <strong>version</strong> de l’API courant qu’on peut voir <a class="reference external" href="http://docs.gamepanel.io/api">ici</a> .</li>
+<li>et le <strong>Token</strong> qui n’est autre que le jeton renvoyé par le serveur machine (comme skypulse par exemple).</li>
+</ul>
+<p>et les <strong>2 champs facultatifs</strong> avec :</p>
+<ul class="simple">
+<li>une plage de <strong>port</strong></li>
+<li><strong>les ports</strong> qu’on veut <em>interdir</em> (on les sépare par des virgules dans le cas où il y en a plusierus)</li>
+</ul>
+<p>Cliquer sur le bouton <strong>CREATE</strong> et le servuer machine sera créer avec succès et on le trouve apparaît sur la liste des serveurs à cet url : <em>url_du_boxbilling/index.php?_url=/bb-admin/craftsrv</em> où on peut les configurer.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="README.html">Table des Matières</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Manuel d’utilisation</a><ul>
+<li><a class="reference internal" href="#back-office">Back office</a><ul>
+<li><a class="reference internal" href="#authentification">Authentification</a></li>
+<li><a class="reference internal" href="#installation-serveur-machine">Installation (serveur machine)</a></li>
+<li><a class="reference internal" href="#gestion-des-serveurs-machines">Gestion des serveurs machines</a><ul>
+<li><a class="reference internal" href="#la-page-d-edition">La page d’édition</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ajout-des-serveurs-machines">Ajout des serveurs machines</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="README.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/CraftSVR.rst.txt"
+            rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, eqima team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/CraftSVR.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
