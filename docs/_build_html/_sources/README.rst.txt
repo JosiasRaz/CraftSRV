@@ -11,8 +11,8 @@ Guide
     :maxdepth: 2
   
 
-    CraftSVR.rst
-    ServiceCraftSVR.rst
+   CraftSVR
+   ServiceCraftSVR
 
 
 
