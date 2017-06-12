@@ -27,10 +27,6 @@ Il ne reste plus qu'à valider en appuyant sur le bouton **CREATE**, puis vous s
 - Le choix du game
 - Et le Hosting Plan
 
-
-Front office
-============
-
 Authentification en tant que client
 -----------------------------------
 Pour s'authentifier en tant que client, il va falloir se rendre à cet url : *http://197.158.86.184:8080/boxbilling/index.php?_url=/login*.
