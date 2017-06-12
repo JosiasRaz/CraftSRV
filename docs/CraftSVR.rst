@@ -8,10 +8,10 @@ Pour s'authentifier il faut se rendre sur l'url : *url_du_boxbilling/index.php?_
 .. image:: imgs/Back-office/image-1.0.PNG
    :align: center
 
-Après vous logez avec votre **adresse éléctronique** et **mot de passe** en tant que admin.
+Après vous logez avec votre **adresse éléctronique** et **mot de passe** en tant que admin afin d'installer le module.
 
-Installation (serveur machine)
-------------------------------
+Installation
+------------
 Dérouler le menu **Extensions -> Overview** puis il ne reste plus qu'à **activer** le **CraftSRV 0.1.0** en cliquant sur **Activate**.
 
 .. image:: imgs/Back-office/image-1.0.1.PNG
